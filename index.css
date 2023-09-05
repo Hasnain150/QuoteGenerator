@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Zeyada&display=swap');
+
+
+*{
+    margin: 0;padding: 0;font-family: "Poppins",sans-serif;box-sizing: border-box;
+}
+.main{
+    height: 100vh;
+    width: 100vw;
+    background-color: #E4F1FF;
+    padding: 1px;
+}
+.app{
+    width: 90%;
+    max-width: 600px;
+    background-color: #FAF3F0;
+    margin: 8% auto 0px;
+    border-radius: 20px;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+h1{ 
+    padding-top: 20px;
+    color:#3E001F ;
+    font-family: 'zeyada',cursive;
+}
+.line
+{
+    width: 10%;
+    height: 2px;
+    background-color: #35A29F;
+    margin:0px auto 2px
+}
+p{
+    font-family:'Dancing Script',cursive ;
+    font-size: 25px;
+    line-height: 1;
+
+}
+.para{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    width: 95%;
+    padding:10px;
+    position: relative;
+}
+.author{
+    margin-top: 20px;
+    align-self: flex-end;
+    margin-right: 30px;
+    font-family: 'zeyada',cursive;
+font-size: 25px;
+}
+.buttons{
+  padding-bottom:20px;
+}
+.buttons span{
+    font-size: 10px;
+    color: #3E001F;
+    margin-left: 10px;
+    visibility: hidden;
+}
+#btn1 ,#btn2{
+    padding: 10px 25px;
+    border: none;
+    border-radius:20px;
+    background-color: #E4F1FF;
+    color:#3E001F ;
+
+    font-size: 12px;
+    font-weight: bold;
+
+}
+#btn2{
+    padding: 10px 50px;
+
+}
+
+
+@media screen and (max-width:450px) {
+    p{
+        font-size: 18px;
+    }
+    #btn1 ,#btn2{
+        padding: 10px;
+        border: none;
+        border-radius:20px;
+        background-color: #E4F1FF;
+        color:#3E001F ;
+    
+        font-size: 12px;
+        font-weight: bold;
+    
+    }
+    #btn2{
+        padding: 10px 40px;
+    
+    }
+    
+}
