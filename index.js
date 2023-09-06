@@ -1,4 +1,4 @@
-const url="http://api.quotable.io/random";
+const url="https://api.quotable.io/random";
 const para=document.querySelector(".para");
 const btn1=document.querySelector("#btn1");
 const btn2=document.querySelector("#btn2");
