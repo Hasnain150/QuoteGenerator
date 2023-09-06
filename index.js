@@ -10,7 +10,7 @@ let quote=async ()=>{
     return result;
 }
 async function laodQuote(){
-    try{
+    
         let x= await quote();
     para.innerHTML="";
    
@@ -22,17 +22,8 @@ async function laodQuote(){
     para.appendChild(p);
     para.appendChild(div);
 
-    }catch(err){
-    para.innerHTML="";
-
-        let p=document.createElement("p");
-        let div=document.createElement("div");
-        div.setAttribute("class","author");
-        p.innerHTML=`Check Your Internet Connection`;
-        p.style.paddingBottom="15px"
-        para.appendChild(p);
-
-    }
+    
+    
     
 }
 laodQuote();
