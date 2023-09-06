@@ -1,37 +1,39 @@
-let quotes=[
-    {
-        quote:`"The purpose of our lives is to be happy."`,
-        author:"Dalai Lama"
-    }, {
-        quote:`"Life is what happens when you're busy making other plans."`,
-        author:"John Lennon"
-    }, {
-        quote:`"Get busy living or get busy dying."`,
-        author:"Stephen King"
-    }, {
-        quote:`"You only live once, but if you do it right, once is enough."`,
-        author:"Mae West"
-    }, {
-        quote:`"Many of life's failures are people who did not realize how close they were to success when they gave up."`,
-        author:"Thomas A Edison"
-    }
-
-]
+const url="http://api.quotable.io/random";
 const para=document.querySelector(".para");
 const btn1=document.querySelector("#btn1");
 const btn2=document.querySelector("#btn2");
-const copiedAlert=document.querySelector(".buttons span");
-
-function laodQuote(){
+const btn3=document.querySelector("#btn3");
+const copiedAlert=document.querySelector(".app span");
+let quote=async ()=>{
+    let x=await fetch(url);
+    let result=await x.json();
+    return result;
+}
+async function laodQuote(){
+    try{
+        let x= await quote();
     para.innerHTML="";
-    const randomIndex = Math.floor(Math.random() * quotes.length);
+   
     let p=document.createElement("p");
     let div=document.createElement("div");
     div.setAttribute("class","author");
-    p.innerHTML=quotes[randomIndex].quote;
-    div.innerHTML=quotes[randomIndex].author;
+    p.innerHTML=x.content;
+    div.innerHTML=x.author;
     para.appendChild(p);
     para.appendChild(div);
+
+    }catch(err){
+    para.innerHTML="";
+
+        let p=document.createElement("p");
+        let div=document.createElement("div");
+        div.setAttribute("class","author");
+        p.innerHTML=`Check Your Internet Connection`;
+        p.style.paddingBottom="15px"
+        para.appendChild(p);
+
+    }
+    
 }
 laodQuote();
 btn1.addEventListener('click',laodQuote);
@@ -44,9 +46,21 @@ navigator.clipboard.writeText(x);
    setTimeout(()=>{
     copiedAlert.style.visibility="hidden";
 
-   },1300)
+   },900)
    
    
 
 }
 btn2.addEventListener("click",copyText)
+
+
+function tweet(){
+    const p=document.querySelector(".para p");
+    const a=document.querySelector(".author");
+    const quotee=p.innerText;
+    const author=a.innerText;
+    const linkT=`https://twitter.com/intent/tweet?text=${quotee} ~${author}
+    `;
+    window.open(linkT,"Tweet Window","width=600px,height=400px")
+}
+btn3.addEventListener('click',tweet);
